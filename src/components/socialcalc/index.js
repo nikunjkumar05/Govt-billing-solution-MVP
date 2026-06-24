@@ -30,7 +30,12 @@ export function initializeApp(data) {
   // alert("app: "+JSON.stringify(data));
   SocialCalc.WorkBookControlLoad(data);
   let ele = document.getElementById("te_griddiv");
-  ele.style.height = "1600px";
+  let gridHeight = window.innerHeight - 160;
+  if (gridHeight < 200) gridHeight = 200;
+  let gridWidth = window.innerWidth - 4;
+  ele.style.height = gridHeight + "px";
+  ele.style.width = gridWidth + "px";
+  ele.style.overflow = "auto";
   spreadsheet.DoOnResize();
 }
 
